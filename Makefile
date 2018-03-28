@@ -1,5 +1,5 @@
 default:
-	@echo 'Usage of make: [ build | linux_build | clean ]'
+	@echo 'Usage of make: [ build | linux_build | windows_build | windows_build_386 | clean ]'
 
 build: 
 	@go build -o ./build/wx-https-proxy ./
@@ -18,4 +18,4 @@ clean:
 	@rm -f ./build/wx-https-proxy
 	@rm -f ./build/wx-https-proxy.exe
 
-.PHONY: default build linux_build windows_build clean
+.PHONY: default build linux_build windows_build windows_build_386 clean
