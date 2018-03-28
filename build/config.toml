@@ -1,0 +1,25 @@
+## 配置文件
+
+## 监听地址
+listen_address = ":443"
+
+## 要代理的服务端
+[[server]]
+default = false # 是否默认
+prefix = "app" # 接口前缀 原地址为/v1/xx代理后/app/v1/xx
+protocol = "http" # 被代理的服务端是http还是https
+address = "xxx.xxx.xxx.xxx" # 被代理完整ip地址
+port = 8080 # 被代理端口
+
+## 要代理的服务端
+[[server]]
+default = true
+prefix = "live"
+protocol = "http"
+address = "xxx.xxx.xxx.xxx"
+port = 8081
+
+## 证书路径配置
+[cert]
+crt = "./cert/server.crt"
+key = "./cert/server.key"

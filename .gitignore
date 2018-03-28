@@ -12,3 +12,8 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+
+build/logs/*.log
+build/wx-https-proxy*
+build/cert/*.crt
+build/cert/*.key
