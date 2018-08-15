@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
@@ -19,6 +20,9 @@ var lf *os.File
 var cfg *Config
 
 func main() {
+	// 系统日志显示文件和行号
+	log.SetFlags(log.Lshortfile | log.LstdFlags)
+
 	// 初始化日志
 	initLog()
 	// 初始化配置文件
@@ -27,6 +31,7 @@ func main() {
 	proxy := &Proxy{
 		Servers: cfg.Servers,
 	}
+
 	err := http.ListenAndServeTLS(cfg.ListenAddress, cfg.Cert.Crt, cfg.Cert.Key, proxy)
 	if err != nil {
 		logger.Fatalln("服务监听错误", err)
